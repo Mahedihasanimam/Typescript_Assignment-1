@@ -1,4 +1,4 @@
-//! AssignmentAns-1 ------------------------------
+//! Problem-1 ------------------------------
 
 const formatValue = (value: string | number | boolean) => {
   if (typeof value === "string") {
@@ -14,7 +14,7 @@ const formatValue = (value: string | number | boolean) => {
   return value;
 };
 
-//! AssignmentAns-2 ------------------------------
+//! Problem-2 ------------------------------
 
 const getLength = (value: string | any[]) => {
   if (typeof value === "string") {
@@ -24,7 +24,7 @@ const getLength = (value: string | any[]) => {
   }
 };
 
-//! AssignmentAns-3 ------------------------------
+//! Problem-3 ------------------------------
 
 class Person {
   name: string;
@@ -40,7 +40,7 @@ class Person {
   }
 }
 
-//! AssignmentAns-4 ------------------------------
+//! Problem-4 ------------------------------
 
 type productitem = {
   title: string;
@@ -50,8 +50,17 @@ const filterByRating = (items: productitem[]): productitem[] => {
   return items.filter((i) => i.rating >= 4);
 };
 
-const books = [
-  { title: "Book A", rating: 4.5 },
-  { title: "Book B", rating: 3.2 },
-  { title: "Book C", rating: 5.0 },
+//! Problem-5 ------------------------------
+
+const filterActiveUsers = (
+  users: { id: number; name: string; email: string; isActive: boolean }[]
+) => {
+  return users.filter((user) => user.isActive);
+};
+const users = [
+  { id: 1, name: "Rakib", email: "rakib@example.com", isActive: true },
+  { id: 2, name: "Asha", email: "asha@example.com", isActive: false },
+  { id: 3, name: "Rumi", email: "rumi@example.com", isActive: true },
 ];
+
+console.log(filterActiveUsers(users));
