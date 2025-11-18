@@ -1,5 +1,3 @@
-//! Problem-1 ------------------------------
-
 const formatValue = (value: string | number | boolean) => {
   if (typeof value === "string") {
     return value.toUpperCase();
@@ -14,8 +12,6 @@ const formatValue = (value: string | number | boolean) => {
   return value;
 };
 
-//! Problem-2 ------------------------------
-
 const getLength = (value: string | any[]) => {
   if (typeof value === "string") {
     return value.length;
@@ -23,8 +19,6 @@ const getLength = (value: string | any[]) => {
     return value.length;
   }
 };
-
-//! Problem-3 ------------------------------
 
 class Person {
   name: string;
@@ -40,8 +34,6 @@ class Person {
   }
 }
 
-//! Problem-4 ------------------------------
-
 type productitem = {
   title: string;
   rating: number;
@@ -50,17 +42,43 @@ const filterByRating = (items: productitem[]): productitem[] => {
   return items.filter((i) => i.rating >= 4);
 };
 
-//! Problem-5 ------------------------------
-
 const filterActiveUsers = (
   users: { id: number; name: string; email: string; isActive: boolean }[]
 ) => {
   return users.filter((user) => user.isActive);
 };
-const users = [
-  { id: 1, name: "Rakib", email: "rakib@example.com", isActive: true },
-  { id: 2, name: "Asha", email: "asha@example.com", isActive: false },
-  { id: 3, name: "Rumi", email: "rumi@example.com", isActive: true },
-];
 
-console.log(filterActiveUsers(users));
+interface Book {
+  title: string;
+  author: string;
+  publishedYear: number;
+  isAvailable: boolean;
+}
+
+const printBookDetails = (book: Book) => {
+  console.log(
+    `Title: ${book.title}, Author: ${book.author}, Published: ${
+      book.publishedYear
+    }, Available: ${book.isAvailable ? "Yes" : "No"}`
+  );
+};
+
+const getUniqueValues = <T>(arr1: T[], arr2: T[]): T[] => {
+  return Array.from(new Set([...arr1, ...arr2]));
+};
+
+const calculateTotalPrice = (
+  products: {
+    name: string;
+    price: number;
+    quantity: number;
+    discount?: number;
+  }[]
+): number => {
+  return products.reduce((total, product) => {
+    const discountedPrice = product.discount ? product.discount : 0;
+    const finalprice =
+      product.price * product.quantity * (1 - discountedPrice / 100);
+    return total + finalprice;
+  }, 0);
+};
